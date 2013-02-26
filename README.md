@@ -1,4 +1,4 @@
 ShootingStar
 ============
 
-ShootingStar is my February entry for #OneGameAMonth
+ShootingStar is my ~~February~~ entry for #OneGameAMonth
