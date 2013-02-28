@@ -12,8 +12,8 @@ function love.conf(t)
     t.screen.width = 1440
     t.screen.height = 960
     t.screen.fullscreen = false
-    t.screen.vsync = true
-    t.screen.fsaa = 16
+    t.screen.vsync = false
+    t.screen.fsaa = 0 -- 0 to 16 (highest)
 
     -- module settings
     t.modules.audio = true
