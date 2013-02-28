@@ -1,5 +1,5 @@
 --[[
-Copyright (c) 2010-2012 Matthias Richter
+Copyright (c) 2010-2013 Matthias Richter
 
 Permission is hereby granted, free of charge, to any person obtaining a copy
 of this software and associated documentation files (the "Software"), to deal
@@ -40,14 +40,7 @@ local function new(x,y, zoom, rot)
 end
 
 function camera:lookAt(x,y)
-	if self._bounds then
-		self.x = math.clamp(x, self._bounds.x1, self._bounds.x2)
-		self.y = math.clamp(y, self._bounds.y1, self._bounds.y2)
-	else
-		self.x = x
-		self.y = y
-	end
-
+	self.x, self.y = x,y
 	return self
 end
 

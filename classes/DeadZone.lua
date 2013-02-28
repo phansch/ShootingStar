@@ -2,18 +2,14 @@
 
 Class = require ".libraries.hump.class"
 
-DeadZone = Class(function(self)
-    self.color = {0, 0, 255, 50}
-    self.position = Vector(20, 20)
-    self.width = player.width * 20
-    self.height = player.height * 11
-end)
-
-function DeadZone:draw()
-    love.graphics.setColor(self.color)
-    love.graphics.rectangle('fill', self.position.x, self.position.y, self.width, self.height)
-    love.graphics.setColor(255, 255, 255)
-end
+DeadZone = Class{
+    init = function(self)
+        self.color = {0, 0, 255, 50}
+        self.position = Vector(20, 20)
+        self.width = player.width * 20
+        self.height = player.height * 11
+    end
+}
 
 function DeadZone:update(dt)
     if player.position.x + player.width >= self.position.x + self.width then
@@ -41,4 +37,10 @@ function DeadZone:update(dt)
     local camX = (self.position.x + self.width/2 - window.width/2) + (cam.offset.x)
     local camY = (self.position.y + (2 * self.height/3) - window.height/2 + self.height/3 + 16) + (cam.offset.y)
     cam:lookAt(camX,camY)
+end
+
+function DeadZone:draw()
+    love.graphics.setColor(self.color)
+    love.graphics.rectangle('fill', self.position.x, self.position.y, self.width, self.height)
+    love.graphics.setColor(255, 255, 255)
 end

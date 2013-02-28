@@ -17,12 +17,12 @@ tilesize = 16
 gravity = 200
 jump_height = 300
 
-local game = require('states.game')
-local menu = require('states.menu')
+require "states.game"
+require "states.menu"
 
 function love.load()
     Gamestate.registerEvents()
-    Gamestate.switch(Gamestate.menu)
+    Gamestate.switch(menu)
 
     cam = Camera()
 end

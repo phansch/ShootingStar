@@ -1,5 +1,5 @@
 --[[
-Copyright (c) 2010-2012 Matthias Richter
+Copyright (c) 2010-2013 Matthias Richter
 
 Permission is hereby granted, free of charge, to any person obtaining a copy
 of this software and associated documentation files (the "Software"), to deal
@@ -55,7 +55,7 @@ function vector.__unm(a)
 end
 
 function vector.__add(a,b)
-	assert(isvector(a) and isvector(b), "Add: wrong argument types (<vector> expected)..")
+	assert(isvector(a) and isvector(b), "Add: wrong argument types (<vector> expected)")
 	return new(a.x+b.x, a.y+b.y)
 end
 
@@ -122,11 +122,6 @@ end
 
 function vector:normalized()
 	return self:clone():normalize_inplace()
-end
-
-function vector:rotate(phi)
-	local c, s = cos(phi), sin(phi)
-	return c*self.x - s*self.y, s*self.x + c*self.y
 end
 
 function vector:rotate_inplace(phi)

@@ -1,12 +1,11 @@
-Gamestate.menu = Gamestate.new()
-local state = Gamestate.menu
+menu = {}
 
-state.text = "Thanks for trying out the game.\n\n"
+menu.text = "Thanks for trying out the game.\n\n"
             .."Instructions: Your goal is to hold out as long as possible by "
             .."killing and avoiding enemies. Use [space] to shoot.\n\n\n"
             .."Now press [space] to continue."
 
-function state:draw()
+function menu:draw()
     love.graphics.printf(self.text, window.width/2-200, window.height/2-200, 400, "center")
 
     love.graphics.setNewFont(11)
@@ -14,8 +13,8 @@ function state:draw()
     love.graphics.setNewFont(12)
 end
 
-function state:keyreleased(key, code)
+function menu:keyreleased(key, code)
     if key == ' ' then
-        Gamestate.switch(Gamestate.game)
+        Gamestate.switch(game)
     end
 end

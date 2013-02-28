@@ -1,18 +1,20 @@
 Class = require ".libraries.hump.class"
 
-Player = Class{function(self)
-    self.respawnTime = 5
-    self.enabled = true
-    self.lives = 3
-    self.width = tilesize
-    self.height = tilesize
+Player = Class{
+    init = function(self)
+        self.respawnTime = 5
+        self.enabled = true
+        self.lives = 3
+        self.width = tilesize
+        self.height = tilesize
 
-    self.position = Vector(20*16, 58*16)
-    self.velocity = Vector(5, 0)
-    self.jetpack_fuel = 0.5
-    self.jetpack_fuel_max = 0.5
-    self.maxVelocity = 5
-end}
+        self.position = Vector(20*16, 58*16)
+        self.velocity = Vector(5, 0)
+    end,
+    jetpack_fuel = 0.5,
+    jetpack_fuel_max = 0.5,
+    maxVelocity = 5
+}
 
 function Player:load()
     self.img = love.graphics.newImage("graphics/player.png")

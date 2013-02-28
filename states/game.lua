@@ -1,16 +1,15 @@
-Gamestate.game = Gamestate.new()
-local state = Gamestate.game
+game = {}
 
 require '.classes.Player'
 require '.classes.DeadZone'
 
-function state:enter(previous)
-    if previous == Gamestate.menu or previous == Gamestate.gameover then
+function game:enter(previous)
+    if previous == menu or previous == gameover then
         self:startGame()
     end
 end
 
-function state:startGame()
+function game:startGame()
     -- Path to the tmx files. The file structure must be similar to how they are saved in Tiled
     MapLoader.path = "maps/"
 
@@ -29,12 +28,12 @@ function state:startGame()
     love.mouse.setVisible(true)
 end
 
-function state:update(dt)
+function game:update(dt)
     player:update(dt)
     deadZone:update(dt)
 end
 
-function state:draw()
+function game:draw()
     cam:attach()
 
     --draw the map, based on the players position
@@ -49,7 +48,7 @@ function state:draw()
     self:printDebug()
 end
 
-function state:printDebug()
+function game:printDebug()
 
     local tile = map.layers["map"]:get(math.ceil(window.mousePos.x/16)-1,math.ceil(window.mousePos.y/16)-1)
     local xcam, ycam = cam:pos()
