@@ -1,12 +1,10 @@
 -- More information can be found at https://love2d.org/wiki/Config_Files
 function love.conf(t)
+    -- author information
     t.title = "Shooting Star"
     t.author = "Philipp Hansch"
     t.version = "0.8.0"
     t.url = "http://phansch.net"
-    t.release = false
-    t.console = false -- since we use sublime text, we don't need the attached console
-    t.identity = nil
 
     -- display settings
     t.screen.width = 1440
@@ -26,4 +24,9 @@ function love.conf(t)
     t.modules.sound = true
     t.modules.physics = false
     t.modules.joystick = false
+
+    -- development settings
+    t.release = false
+    t.console = false -- since we use sublime text, we don't need the attached console
+    t.identity = nil
 end

@@ -25,6 +25,7 @@ function game:startGame()
     player:load()
 
     deadZone = DeadZone()
+    deadZone:setVisible(true)
 
     Timer.clear()
 

@@ -1,3 +1,5 @@
+-- The player class
+
 Class = require ".libraries.hump.class"
 
 Player = Class{
@@ -5,8 +7,8 @@ Player = Class{
         self.respawnTime = 5
         self.enabled = true
         self.lives = 3
-        self.width = tilesize
-        self.height = tilesize
+        self.width = game.tilesize
+        self.height = game.tilesize
 
         self.position = Vector(20*16, 58*16)
         self.velocity = Vector(5, 0)
@@ -50,12 +52,12 @@ end
 function Player:jump(dt)
     if self.jetpack_fuel > 0 and love.keyboard.isDown(" ") then
         self.jetpack_fuel = self.jetpack_fuel - dt -- decrease the fuel meter
-        self.velocity.y = self.velocity.y + jump_height * (dt / self.jetpack_fuel_max)
+        self.velocity.y = self.velocity.y + game.jump_height * (dt / self.jetpack_fuel_max)
     end
     if self.velocity.y ~= 0 then -- we're probably jumping
         if self:canMove('up') or self:canMove('down') then
             self.position.y = self.position.y - self.velocity.y * dt
-            self.velocity.y = self.velocity.y - gravity * dt
+            self.velocity.y = self.velocity.y - game.gravity * dt
             if not self:canMove('down') then
                 self.jetpack_fuel = 0.5
                 self.velocity.y = 0
@@ -64,6 +66,7 @@ function Player:jump(dt)
     end
 end
 
+-- Checks wether the player can move in the specified direction
 function Player:canMove(direction)
     -- get tiles around player
     local tile_right = map.layers["map"]:get(math.ceil(self.position.x/16), math.ceil(self.position.y/16))
