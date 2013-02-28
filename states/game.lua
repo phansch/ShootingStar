@@ -1,4 +1,7 @@
 game = {}
+game.tilesize = 16
+game.gravity = 200
+game.jump_height = 300
 
 require '.classes.Player'
 require '.classes.DeadZone'
