@@ -17,6 +17,7 @@ function love.load()
 end
 
 function love.update(dt)
+    globaltime = globaltime + dt
     Timer.update(dt)
     window.mousePos = Vector(love.mouse.getX(), love.mouse.getY())
 end
