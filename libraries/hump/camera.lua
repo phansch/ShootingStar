@@ -40,7 +40,14 @@ local function new(x,y, zoom, rot)
 end
 
 function camera:lookAt(x,y)
-	self.x, self.y = x,y
+	if self._bounds then
+		self.x = math.clamp(x, self._bounds.x1, self._bounds.x2)
+		self.y = math.clamp(y, self._bounds.y1, self._bounds.y2)
+	else
+		self.x = x
+		self.y = y
+	end
+
 	return self
 end
 
