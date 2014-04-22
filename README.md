@@ -1,8 +1,4 @@
 ShootingStar
 ============
 
-ShootingStar is my ~~February~~ entry for #OneGameAMonth
-
-## TODO
-
- * Use actual color for the background instead of colored tiles
+[This project moved to GitLab.](https://gitlab.com/phansch/shootingstar)
